@@ -13,6 +13,7 @@ import com.javaweb.repository.CustomerRepository;
 import com.javaweb.repository.UserRepository;
 import com.javaweb.service.CustomerService;
 import com.javaweb.utils.NumberUtils;
+import com.javaweb.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,7 @@ public class CustomerServiceImpl implements CustomerService
     @Override
     public CustomerDTO addOrUpdateCustomer(CustomerDTO customerDTO)
     {
+        if(!validateCreateOrUpdateCustomer(customerDTO)) return null;
         CustomerEntity customerEntity = customerConverter.toCustomerEntity(customerDTO);
         Long customerId = customerDTO.getId();
         if(NumberUtils.checkNumber(customerId))
@@ -47,10 +49,22 @@ public class CustomerServiceImpl implements CustomerService
         return customerDTO;
     }
 
+    public boolean validateCreateOrUpdateCustomer(CustomerDTO customerDTO)
+    {
+        if(!StringUtils.check(customerDTO.getCustomerPhone())) return false;
+        if(!StringUtils.check(customerDTO.getFullName())) return false;
+        return true;
+    }
+
     @Override
     public void deleteCustomersByIds(Long[] ids)
     {
-        customerRepository.deleteByIdIn(ids);
+        for(Long it : ids)
+        {
+            CustomerEntity customerEntity = customerRepository.findById(it).get();
+            customerEntity.setStatus("0");
+            customerRepository.save(customerEntity);
+        }
     }
 
     @Override

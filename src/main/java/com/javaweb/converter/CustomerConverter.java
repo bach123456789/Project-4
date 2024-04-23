@@ -3,6 +3,7 @@ package com.javaweb.converter;
 import com.javaweb.entity.CustomerEntity;
 import com.javaweb.model.dto.CustomerDTO;
 import com.javaweb.model.response.CustomerSearchResponse;
+import com.javaweb.utils.StringUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,6 +17,7 @@ public class CustomerConverter
     public CustomerEntity toCustomerEntity(CustomerDTO customerDTO)
     {
         CustomerEntity res = modelMapper.map(customerDTO, CustomerEntity.class);
+        if(!StringUtils.check(customerDTO.getStatus())) res.setStatus("1");
         return res;
     }
 

@@ -1,7 +1,11 @@
 package com.javaweb.controller.web;
 
+import com.javaweb.model.dto.CustomerDTO;
 import com.javaweb.model.request.BuildingSearchRequest;
+import com.javaweb.service.CustomerService;
 import com.javaweb.utils.DistrictCode;
+import com.javaweb.utils.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -17,6 +21,9 @@ import javax.servlet.http.HttpSession;
 
 @Controller(value = "homeControllerOfWeb")
 public class HomeController {
+
+	@Autowired
+	CustomerService customerService;
 
 	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
 	public ModelAndView homePage(BuildingSearchRequest buildingSearchRequest, HttpServletRequest request) {
@@ -44,8 +51,13 @@ public class HomeController {
     }
 
     @GetMapping(value="/lien-he")
-    public ModelAndView contact(){
+    public ModelAndView contact(CustomerDTO customerDTO)
+	{
         ModelAndView mav = new ModelAndView("/web/contact");
+		if(StringUtils.check(customerDTO.getCustomerPhone()) && StringUtils.check(customerDTO.getFullName()))
+		{
+			customerService.addOrUpdateCustomer(customerDTO);
+		}
         return mav;
     }
 

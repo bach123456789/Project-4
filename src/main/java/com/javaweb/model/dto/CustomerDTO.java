@@ -7,7 +7,7 @@ public class CustomerDTO extends AbstractDTO
     private String managementStaff;
     private String customerPhone;
     private String email;
-    private String demand;
+    private String note;
     private String status;
     private String companyName;
 
@@ -61,12 +61,12 @@ public class CustomerDTO extends AbstractDTO
         this.email = email;
     }
 
-    public String getDemand() {
-        return demand;
+    public String getNote() {
+        return note;
     }
 
-    public void setDemand(String demand) {
-        this.demand = demand;
+    public void setNote(String note) {
+        this.note = note;
     }
 
     public String getStatus() {

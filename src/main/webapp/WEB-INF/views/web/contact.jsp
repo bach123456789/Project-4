@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
+<%--<c:url var="webcontacturl" value="  /lien-he"/>--%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,47 +10,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liên hệ</title>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="page-wrapper">
     <%--<header>--%>
-        <%--<!-- MENU  -->--%>
-        <%--<div class="p-4">--%>
-            <%--<div class="row navbar">--%>
-                <%--<div class="col-12 col-md-3">--%>
-                    <%--<div class="logo">--%>
-                        <%--<a href="">--%>
-                            <%--<img src="https://bizweb.dktcdn.net/100/328/362/themes/894751/assets/logo.png?1676257083798"--%>
-                                 <%--alt="">--%>
-                        <%--</a>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-                <%--<div class="col-12 col-md-6">--%>
-                    <%--<div class="item-menu">--%>
-                        <%--<div class="nav nav1">--%>
-                            <%--<div class="nav-item p-2"><a class="nav-item-link" href="/trang-chu"><span>Trang--%>
-                                            <%--chủ</span></a></div>--%>
-                            <%--<div class="nav-item p-2"><a class="nav-item-link" href="/gioi-thieu"><span>Giới--%>
-                                            <%--thiệu</span></a></div>--%>
-                            <%--<div class="nav-item p-2"><a class="nav-item-link" href="/san-pham"><span>Sản phẩm--%>
-                                        <%--</span></a></div>--%>
-                            <%--<div class="nav-item p-2"><a class="nav-item-link" href="/tin-tuc"><span>Tin--%>
-                                            <%--tức</span></a></div>--%>
-                            <%--<div class="nav-item p-2">--%>
-                                <%--<a class="nav-item-link" href="/lien-he">--%>
-                                    <%--<span style="color: var(--primary-color);">Liên hệ</span>--%>
-                                <%--</a>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-                <%--<div class="col-12 col-md-3">--%>
-                    <%--<button class="btn btn-primary px-4">--%>
-                        <%--Liên hệ tư vấn--%>
-                    <%--</button>--%>
-                <%--</div>--%>
-            <%--</div>--%>
-        <%--</div>--%>
+    <%--<!-- MENU  -->--%>
+    <%--<div class="p-4">--%>
+    <%--<div class="row navbar">--%>
+    <%--<div class="col-12 col-md-3">--%>
+    <%--<div class="logo">--%>
+    <%--<a href="">--%>
+    <%--<img src="https://bizweb.dktcdn.net/100/328/362/themes/894751/assets/logo.png?1676257083798"--%>
+    <%--alt="">--%>
+    <%--</a>--%>
+    <%--</div>--%>
+    <%--</div>--%>
+    <%--<div class="col-12 col-md-6">--%>
+    <%--<div class="item-menu">--%>
+    <%--<div class="nav nav1">--%>
+    <%--<div class="nav-item p-2"><a class="nav-item-link" href="/trang-chu"><span>Trang--%>
+    <%--chủ</span></a></div>--%>
+    <%--<div class="nav-item p-2"><a class="nav-item-link" href="/gioi-thieu"><span>Giới--%>
+    <%--thiệu</span></a></div>--%>
+    <%--<div class="nav-item p-2"><a class="nav-item-link" href="/san-pham"><span>Sản phẩm--%>
+    <%--</span></a></div>--%>
+    <%--<div class="nav-item p-2"><a class="nav-item-link" href="/tin-tuc"><span>Tin--%>
+    <%--tức</span></a></div>--%>
+    <%--<div class="nav-item p-2">--%>
+    <%--<a class="nav-item-link" href="/lien-he">--%>
+    <%--<span style="color: var(--primary-color);">Liên hệ</span>--%>
+    <%--</a>--%>
+    <%--</div>--%>
+    <%--</div>--%>
+    <%--</div>--%>
+    <%--</div>--%>
+    <%--<div class="col-12 col-md-3">--%>
+    <%--<button class="btn btn-primary px-4">--%>
+    <%--Liên hệ tư vấn--%>
+    <%--</button>--%>
+    <%--</div>--%>
+    <%--</div>--%>
+    <%--</div>--%>
     <%--</header>--%>
     <!-- INTRO  -->
     <div class="intro text-center mb-5">
@@ -115,19 +118,20 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
+
                     <h2 class="title-lienhe"><strong>Liên hệ với chúng tôi</strong></h2>
-                    <form>
+                    <form id="listForm">
                         <div class="row">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Họ và tên">
+                                <input type="text" class="form-control" name = "fullName" placeholder="Họ và tên" value=""/>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Email">
+                                <input type="text" class="form-control" name = "email" placeholder="Email" value=""/>
                             </div>
                         </div>
-                        <input type="text" class="form-control mt-3" placeholder="Số điện thoại">
-                        <input type="text" class="form-control mt-3" placeholder="Nội dung">
-                        <button class="btn btn-primary px-4 mt-3">
+                        <input type="text" class="form-control mt-3" name = "customerPhone" placeholder="Số điện thoại" value=""/>
+                        <input type="text" class="form-control mt-3" name = "note" placeholder="Nội dung" value=""/>
+                        <button class="btn btn-primary px-4 mt-3" id ="addCustomer">
                             Gửi liên hệ
                         </button>
                     </form>
@@ -158,7 +162,7 @@
                             </div>
                             <div class="col-12 col-md-4 text-center">
                                 <div class="icon-footer">
-                                    <img src="https://bizweb.dktcdn.net/100/328/362/themes/894751/assets/place_phone.png?1676257083798 alt="">
+                                    <img src="https://bizweb.dktcdn.net/100/328/362/themes/894751/assets/place_phone.png?1676257083798" alt="">
                                 </div>
                                 <div class="content-center-footer">
                                     <p class="mb-1 mt-3">Hotline</p>
@@ -233,7 +237,13 @@
         </div>
     </footer>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
 </body>
+<script>
+    $('#addCustomer').click(function (e)
+    {
+        e.preventDefault();
+        $('#listForm').submit();
+    })
+</script>
 </html>

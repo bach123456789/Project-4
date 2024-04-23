@@ -49,7 +49,7 @@ public class BuildingEntity extends BaseEntity
     @Column(name = "servicefee")
     private Long serviceFee;
 
-    @Column(name = "brokeragetee")
+    @Column(name = "brokeragefee")
     private Long brokerageFee;
 
     @Column(name = "type")

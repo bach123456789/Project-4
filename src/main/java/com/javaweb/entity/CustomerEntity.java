@@ -21,6 +21,20 @@ public class CustomerEntity extends BaseEntity
     @Column(name = "email")
     private String email;
 
+    @Column(name = "status")
+    private String status;
+
+    @OneToMany(mappedBy = "customer", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true)
+    private List<TransactionTypeEntity> transactionTypes = new ArrayList<>();
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @ManyToMany
     @JoinTable(name = "assignmentcustomer",
             joinColumns = @JoinColumn(name = "customerid", nullable = false),
@@ -67,5 +81,13 @@ public class CustomerEntity extends BaseEntity
 
     public void setUserEntities(List<UserEntity> userEntities) {
         this.userEntities = userEntities;
+    }
+
+    public List<TransactionTypeEntity> getTransactionTypes() {
+        return transactionTypes;
+    }
+
+    public void setTransactionTypes(List<TransactionTypeEntity> transactionTypes) {
+        this.transactionTypes = transactionTypes;
     }
 }

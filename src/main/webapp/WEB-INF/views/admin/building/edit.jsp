@@ -354,7 +354,7 @@
     });
 
 
-        function addOrUpdateBuilding(data)
+    function addOrUpdateBuilding(data)
     {
         $.ajax({
             type: "POST",

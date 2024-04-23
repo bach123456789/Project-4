@@ -1,10 +1,13 @@
 package com.javaweb.controller.admin;
 
+import com.javaweb.enums.TransactionType;
 import com.javaweb.model.dto.CustomerDTO;
+import com.javaweb.model.dto.TransactionTypeDTO;
 import com.javaweb.model.request.CustomerSearchRequest;
 import com.javaweb.model.response.CustomerSearchResponse;
 import com.javaweb.security.utils.SecurityUtils;
 import com.javaweb.service.CustomerService;
+import com.javaweb.service.TransactionTypeService;
 import com.javaweb.service.impl.UserService;
 import com.javaweb.utils.DisplayTagUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +31,11 @@ public class CustomerController
     @Autowired
     UserService userService;
 
+    @Autowired
+    TransactionTypeService transactionTypeService;
+
     @RequestMapping(value = "/admin/customer-list", method = RequestMethod.GET)
-    public ModelAndView buildingList(@ModelAttribute CustomerSearchRequest customerSearchRequest, HttpServletRequest request)
+    public ModelAndView customerList(@ModelAttribute CustomerSearchRequest customerSearchRequest, HttpServletRequest request)
     {
         ModelAndView mav = new ModelAndView("admin/customer/list");
         mav.addObject("modelSearch", customerSearchRequest);
@@ -54,18 +60,23 @@ public class CustomerController
     }
 
     @RequestMapping(value = "/admin/customer-edit", method = RequestMethod.GET)
-    public ModelAndView buildingEdit(@ModelAttribute("customerEdit") CustomerDTO customerDTO, HttpServletRequest request)
+    public ModelAndView customerEdit(@ModelAttribute("customerEdit") CustomerDTO customerDTO, HttpServletRequest request)
     {
         ModelAndView mav = new ModelAndView("admin/customer/edit");
         return mav;
     }
 
     @RequestMapping(value = "/admin/customer-edit-{id}", method = RequestMethod.GET)
-    public ModelAndView buildingEdit(@PathVariable("id") Long id, HttpServletRequest request)
+    public ModelAndView customerEdit(@PathVariable("id") Long id, HttpServletRequest request)
     {
         ModelAndView mav = new ModelAndView("admin/customer/edit");
         CustomerDTO customerDTO = customerService.findById(id);
+        List<TransactionTypeDTO> listCSKH = transactionTypeService.findByCodeAndCustomerId("CSKH", id);
+        List<TransactionTypeDTO> listDDX = transactionTypeService.findByCodeAndCustomerId("DDX", id);
         mav.addObject("customerEdit", customerDTO);
+        mav.addObject("transactionType", TransactionType.transactionType());
+        mav.addObject("transactionListCSKH", listCSKH);
+        mav.addObject("transactionListDDX", listDDX);
         return mav;
     }
 }

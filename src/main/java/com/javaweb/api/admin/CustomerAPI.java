@@ -3,10 +3,12 @@ package com.javaweb.api.admin;
 import com.javaweb.model.dto.AssignmentBuildingDTO;
 import com.javaweb.model.dto.AssignmentCustomerDTO;
 import com.javaweb.model.dto.CustomerDTO;
+import com.javaweb.model.dto.TransactionTypeDTO;
 import com.javaweb.model.request.CustomerSearchRequest;
 import com.javaweb.model.response.CustomerSearchResponse;
 import com.javaweb.model.response.ResponseDTO;
 import com.javaweb.service.CustomerService;
+import com.javaweb.service.TransactionTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,9 @@ public class CustomerAPI
 {
     @Autowired
     CustomerService customerService;
+
+    @Autowired
+    TransactionTypeService transactionTypeService;
 
     @PostMapping
     public ResponseEntity<CustomerDTO> addOrUpdateCustomer(@RequestBody CustomerDTO customerDTO)
@@ -53,5 +58,17 @@ public class CustomerAPI
     {
         ResponseDTO result = customerService.listStaffs(id);
         return result;
+    }
+
+    @PostMapping("/transaction-type")
+    public ResponseEntity<TransactionTypeDTO> addOrUpdateTransactionType(@RequestBody TransactionTypeDTO transactionTypeDTO)
+    {
+        return ResponseEntity.ok(transactionTypeService.addOrUpdateTransactionType(transactionTypeDTO));
+    }
+
+    @GetMapping("/{id}/transaction-detail")
+    public ResponseEntity<TransactionTypeDTO> getTransactionDetail(@PathVariable Long id)
+    {
+        return ResponseEntity.ok(transactionTypeService.findById(id));
     }
 }

@@ -2,7 +2,7 @@ package com.javaweb.model.dto;
 
 import java.util.List;
 
-public class AssignmentBuildingDTO {
+public class AssignmentBuildingDTO extends AbstractDTO {
     private Long buildingId;
     private List<Long> staffs;
 
