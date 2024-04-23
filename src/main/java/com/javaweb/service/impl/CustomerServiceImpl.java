@@ -43,6 +43,7 @@ public class CustomerServiceImpl implements CustomerService
         {
             CustomerEntity foundCustomer = customerRepository.findById(customerId).get();
             List<UserEntity> userEntities = foundCustomer.getUserEntities();
+            customerEntity.setTransactionTypes(foundCustomer.getTransactionTypes());
             customerEntity.setUserEntities(userEntities);
         }
         customerRepository.save(customerEntity);
