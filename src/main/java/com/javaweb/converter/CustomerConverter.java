@@ -17,7 +17,7 @@ public class CustomerConverter
     public CustomerEntity toCustomerEntity(CustomerDTO customerDTO)
     {
         CustomerEntity res = modelMapper.map(customerDTO, CustomerEntity.class);
-        if(!StringUtils.check(customerDTO.getStatus())) res.setStatus("1");
+        res.setIsActive("1");
         return res;
     }
 

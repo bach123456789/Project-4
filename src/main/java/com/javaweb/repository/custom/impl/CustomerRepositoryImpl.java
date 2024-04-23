@@ -58,7 +58,7 @@ public class CustomerRepositoryImpl implements CustomerRepositoryCustom
     {
         Long staffId = customerSearchRequest.getStaffId();
         if(NumberUtils.checkNumber(staffId)) where.append(" and assignmentCustomer.staffId = " + staffId + " ");
-        where.append(" and b.status = 1 ");
+        where.append(" and b.is_active = 1 ");
     }
 
     public static void queryNormal(CustomerSearchRequest customerSearchRequest, StringBuilder where)

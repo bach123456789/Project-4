@@ -24,6 +24,17 @@ public class CustomerEntity extends BaseEntity
     @Column(name = "status")
     private String status;
 
+    @Column(name = "is_active")
+    private String isActive;
+
+    public String getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(String isActive) {
+        this.isActive = isActive;
+    }
+
     @OneToMany(mappedBy = "customer", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true)
     private List<TransactionTypeEntity> transactionTypes = new ArrayList<>();
 

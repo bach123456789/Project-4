@@ -321,7 +321,7 @@
 
         else
         {
-            window.location.href="<c:url value = "/admin/building-list?fullNameAndPhoneNumber=require"/>";
+            window.location.href="<c:url value = "/admin/customer-list?fullNameAndPhoneNumber=require"/>";
         }
     });
 

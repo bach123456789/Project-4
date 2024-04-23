@@ -62,7 +62,7 @@ public class CustomerServiceImpl implements CustomerService
         for(Long it : ids)
         {
             CustomerEntity customerEntity = customerRepository.findById(it).get();
-            customerEntity.setStatus("0");
+            customerEntity.setIsActive("0");
             customerRepository.save(customerEntity);
         }
     }
