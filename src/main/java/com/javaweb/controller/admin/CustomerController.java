@@ -1,5 +1,6 @@
 package com.javaweb.controller.admin;
 
+import com.javaweb.enums.Status;
 import com.javaweb.enums.TransactionType;
 import com.javaweb.model.dto.CustomerDTO;
 import com.javaweb.model.dto.TransactionTypeDTO;
@@ -63,6 +64,7 @@ public class CustomerController
     public ModelAndView customerEdit(@ModelAttribute("customerEdit") CustomerDTO customerDTO, HttpServletRequest request)
     {
         ModelAndView mav = new ModelAndView("admin/customer/edit");
+        mav.addObject("statuss", Status.type());
         return mav;
     }
 
@@ -77,6 +79,7 @@ public class CustomerController
         mav.addObject("transactionType", TransactionType.transactionType());
         mav.addObject("transactionListCSKH", listCSKH);
         mav.addObject("transactionListDDX", listDDX);
+        mav.addObject("statuss", Status.type());
         return mav;
     }
 }

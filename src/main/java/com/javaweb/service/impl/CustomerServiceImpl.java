@@ -46,6 +46,7 @@ public class CustomerServiceImpl implements CustomerService
             customerEntity.setTransactionTypes(foundCustomer.getTransactionTypes());
             customerEntity.setUserEntities(userEntities);
         }
+        else customerEntity.setStatus("CHUA_XU_LY");
         customerRepository.save(customerEntity);
         return customerDTO;
     }

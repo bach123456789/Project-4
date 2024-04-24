@@ -84,8 +84,13 @@
                                 <div class="form-group">
                                     <label class="col-xs-3">Tình trạng</label>
                                     <div class="col-xs-9">
-                                        <form:input class="form-control" path="status"/>
+                                        <form:select class="form-control" path="status">
+                                            <form:option value="">---Chọn Tình Trạng---</form:option>
+                                            <form:options items="${statuss}"></form:options>
+                                        </form:select>
                                     </div>
+
+
                                 </div>
                                 <div class="form-group">
                                     <label class="col-xs-3"></label>
