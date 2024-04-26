@@ -28,7 +28,7 @@ public class CustomerConverter
     {
         Map<String, String> statuss = Status.type();
         CustomerSearchResponse res = modelMapper.map(customerEntity, CustomerSearchResponse.class);
-        res.setStatus(statuss.get(customerEntity.getStatus()));
+        if(StringUtils.check(customerEntity.getStatus()))res.setStatus(statuss.get(customerEntity.getStatus()));
         return res;
     }
 
