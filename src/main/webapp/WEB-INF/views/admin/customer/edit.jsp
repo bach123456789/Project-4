@@ -235,6 +235,10 @@
                     <input type="hidden" id="customerId" name="customerId" value=""/>
                     <input type="hidden" id="code" name="code" value=""/>
                     <input type="hidden" id="transactionId" name="transactionId" value=""/>
+                    <input type="hidden" id="createdBy" name="createdBy" value=""/>
+                    <input type="hidden" id="modifiedBy" name="modifiedBy" value=""/>
+                    <input type="hidden" id="createdDate" name="createdDate" value=""/>
+                    <input type="hidden" id="modifiedDate" name="modifiedDate" value=""/>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" id="btnAddOrUpdateTransaction">Thêm giao dịch</button>
@@ -285,6 +289,10 @@
         data['id'] = $('#transactionId').val();
         data['customerId'] = $('#customerId').val();
         data['code'] = $('#code').val();
+        data['createdBy'] = $('#createdBy').val();
+        data['modifiedBy'] = $('#modifiedBy').val();
+        data['createdDate'] = $('#createdDate').val();
+        data['modifiedDate'] = $('#modifiedDate').val();
         data['note'] = $('#transactionDetail').val();
         addTransaction(data);
     });

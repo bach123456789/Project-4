@@ -14,6 +14,6 @@ public class NumberUtils {
 
 	public static boolean checkNumber(Long number)
 	{
-		return number != null;
+		return number != null && !number.toString().isEmpty();
 	}
 }

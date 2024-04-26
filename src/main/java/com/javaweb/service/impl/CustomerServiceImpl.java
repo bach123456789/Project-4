@@ -38,15 +38,6 @@ public class CustomerServiceImpl implements CustomerService
     {
         if(!validateCreateOrUpdateCustomer(customerDTO)) return null;
         CustomerEntity customerEntity = customerConverter.toCustomerEntity(customerDTO);
-        Long customerId = customerDTO.getId();
-        if(NumberUtils.checkNumber(customerId))
-        {
-            CustomerEntity foundCustomer = customerRepository.findById(customerId).get();
-            List<UserEntity> userEntities = foundCustomer.getUserEntities();
-            customerEntity.setTransactionTypes(foundCustomer.getTransactionTypes());
-            customerEntity.setUserEntities(userEntities);
-        }
-        else customerEntity.setStatus("CHUA_XU_LY");
         customerRepository.save(customerEntity);
         return customerDTO;
     }

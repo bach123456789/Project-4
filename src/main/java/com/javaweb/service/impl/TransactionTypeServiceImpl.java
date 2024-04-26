@@ -21,12 +21,6 @@ public class TransactionTypeServiceImpl implements TransactionTypeService
     private TransactionTypeRepository transactionTypeRepository;
 
     @Autowired
-    private ModelMapper modelMapper;
-
-    @Autowired
-    private CustomerRepository customerRepository;
-
-    @Autowired
     private TransactionTypeConverter transactionTypeConverter;
 
     @Override
@@ -41,9 +35,7 @@ public class TransactionTypeServiceImpl implements TransactionTypeService
     @Override
     public TransactionTypeDTO addOrUpdateTransactionType(TransactionTypeDTO transactionTypeDTO)
     {
-        TransactionTypeEntity transactionTypeEntity = modelMapper.map(transactionTypeDTO, TransactionTypeEntity.class);
-        CustomerEntity customerEntity = customerRepository.findById(transactionTypeDTO.getCustomerId()).get();
-        transactionTypeEntity.setCustomer(customerEntity);
+        TransactionTypeEntity transactionTypeEntity = transactionTypeConverter.toTransactionTypeEntity(transactionTypeDTO);
         transactionTypeRepository.save(transactionTypeEntity);
         return transactionTypeDTO;
     }
