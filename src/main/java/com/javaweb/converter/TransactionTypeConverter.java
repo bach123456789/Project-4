@@ -28,6 +28,11 @@ public class TransactionTypeConverter
     {
         TransactionTypeDTO transactionTypeDTO = modelMapper.map(transactionTypeEntity, TransactionTypeDTO.class);
         transactionTypeDTO.setCustomerId(transactionTypeEntity.getCustomer().getId());
+        if(transactionTypeEntity.getCreatedDate().equals(transactionTypeDTO.getModifiedDate()))
+        {
+            transactionTypeDTO.setModifiedDate(null);
+            transactionTypeDTO.setModifiedBy(null);
+        }
         return transactionTypeDTO;
     }
 

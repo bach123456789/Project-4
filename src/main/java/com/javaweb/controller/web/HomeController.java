@@ -51,13 +51,9 @@ public class HomeController {
     }
 
     @GetMapping(value="/lien-he")
-    public ModelAndView contact(CustomerDTO customerDTO)
+    public ModelAndView contact()
 	{
         ModelAndView mav = new ModelAndView("/web/contact");
-		if(StringUtils.check(customerDTO.getCustomerPhone()) && StringUtils.check(customerDTO.getFullName()))
-		{
-			customerService.addOrUpdateCustomer(customerDTO);
-		}
         return mav;
     }
 

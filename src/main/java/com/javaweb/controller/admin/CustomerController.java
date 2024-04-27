@@ -13,11 +13,9 @@ import com.javaweb.service.impl.UserService;
 import com.javaweb.utils.DisplayTagUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -81,5 +79,14 @@ public class CustomerController
         mav.addObject("transactionListDDX", listDDX);
         mav.addObject("statuss", Status.type());
         return mav;
+    }
+
+    @RequestMapping(value = "/lien-he", method = RequestMethod.POST)
+    public ResponseEntity<?> contact(@RequestBody CustomerDTO customer)
+    {
+        if(customer.getCustomerPhone() != null && customer.getFullName() != null){
+            customerService.addOrUpdateCustomer(customer);
+        }
+        return ResponseEntity.ok("");
     }
 }

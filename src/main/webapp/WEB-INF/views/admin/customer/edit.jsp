@@ -308,6 +308,7 @@
             success: function (response)
             {
                 window.location.href="<c:url value = '/admin/customer-list?message=success'/>";
+                alert("Thêm giao dịch thành công!!!");
             },
 
             error: function (response) {
@@ -349,6 +350,7 @@
             success: function (response)
             {
                 window.location.href="<c:url value = '/admin/customer-list?message=success'/>";
+                alert("Thêm khách hàng thành công!!!");
             },
 
             error: function (response) {

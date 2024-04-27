@@ -365,6 +365,7 @@
             success: function (response)
             {
                 window.location.href="<c:url value = '/admin/building-list?message=success'/>";
+                alert("Thêm tòa nhà thành công!!!");
             },
 
             error: function (response) {
