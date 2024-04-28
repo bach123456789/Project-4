@@ -349,7 +349,7 @@
             dataType: "JSON",
             success: function (response)
             {
-                location.reload();
+                window.location.href="<c:url value = '/admin/customer-list?message=success'/>";
                 alert("Thêm khách hàng thành công!!!");
             },
 

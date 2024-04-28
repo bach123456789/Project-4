@@ -352,7 +352,6 @@
             data: JSON.stringify(data),
             contentType: "application/json",
             success: function () {
-                window.location.href="<c:url value = "/admin/customer-list?message=success"/>";
                 location.reload();
             },
 
