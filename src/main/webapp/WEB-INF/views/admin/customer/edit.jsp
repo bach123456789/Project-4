@@ -307,7 +307,7 @@
             dataType: "JSON",
             success: function (response)
             {
-                window.location.href="<c:url value = '/admin/customer-list?message=success'/>";
+                location.reload();
                 alert("Thêm giao dịch thành công!!!");
             },
 

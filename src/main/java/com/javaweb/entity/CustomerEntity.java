@@ -27,6 +27,28 @@ public class CustomerEntity extends BaseEntity
     @Column(name = "is_active")
     private String isActive;
 
+    @Column(name="companyname")
+    private String companyName;
+
+    @Column(name = "demand")
+    private String note;
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
     public String getIsActive() {
         return isActive;
     }

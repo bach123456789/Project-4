@@ -210,7 +210,7 @@
                                 </button>
                             </a>
 
-                            <button class="btn btn-danger" title="Xóa tòa nhà" id="btnDeleteBuilding">
+                            <button class="btn btn-danger" title="Xóa tòa nhà" id="btnDeleteCustomers">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      class="bi bi-building-dash" viewBox="0 0 16 16">
                                     <path
@@ -335,6 +335,14 @@
         loadStaff(buildingId);
         $('#buildingId').val(buildingId);
     }
+
+    $('#btnDeleteCustomers').click(function (e) {
+        var customerIds = [];
+        $('input[name="checkList"]:checked').each(function() {
+            customerIds.push($(this).val());
+        });
+        deleteBuildings(customerIds);
+    })
 
     function loadStaff(buildingId)
     {
