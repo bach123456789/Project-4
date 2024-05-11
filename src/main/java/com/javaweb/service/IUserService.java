@@ -26,4 +26,6 @@ public interface IUserService {
     List<UserDTO> getAllUsers(Pageable pageable);
     Map<Long, String>  getStaffs();
     int countTotalItems();
+
+    String forgotPassword(String userName);
 }

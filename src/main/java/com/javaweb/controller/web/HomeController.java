@@ -1,10 +1,8 @@
 package com.javaweb.controller.web;
 
-import com.javaweb.model.dto.CustomerDTO;
 import com.javaweb.model.request.BuildingSearchRequest;
 import com.javaweb.service.CustomerService;
-import com.javaweb.utils.DistrictCode;
-import com.javaweb.utils.StringUtils;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

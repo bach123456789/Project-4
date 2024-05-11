@@ -27,7 +27,7 @@ public class RentAreaConverter
         String[] rentAreas = buildingDTO.getRentArea().split(",");
         List<RentAreaEntity> rentAreaEntityList = new ArrayList<>();
 
-        for(String val : rentAreas) rentAreaEntityList.add(toRentAreaEntity(Long.valueOf(val), buildingEntity));
+        for(String val : rentAreas) rentAreaEntityList.add(toRentAreaEntity(Long.valueOf(val.trim()), buildingEntity));
         return rentAreaEntityList;
     }
 }

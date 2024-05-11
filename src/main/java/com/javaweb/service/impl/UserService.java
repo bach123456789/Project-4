@@ -2,6 +2,7 @@ package com.javaweb.service.impl;
 
 import com.javaweb.constant.SystemConstant;
 import com.javaweb.converter.UserConverter;
+import com.javaweb.exception.NotFoundException;
 import com.javaweb.model.dto.PasswordDTO;
 import com.javaweb.model.dto.UserDTO;
 import com.javaweb.entity.RoleEntity;
@@ -96,6 +97,13 @@ public class UserService implements IUserService {
         return userRepository.countTotalItem();
     }
 
+    @Override
+    public String forgotPassword(String userName)
+    {
+        UserEntity userEntity = userRepository.findOneByUserNameAndStatus(userName, 1);
+        if(userEntity == null) throw new NotFoundException("Account not found with " + userName);
+        return "Please check your email";
+    }
 
 
     @Override
